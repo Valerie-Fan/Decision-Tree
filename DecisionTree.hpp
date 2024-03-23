@@ -122,6 +122,11 @@ private:
             return;
         }
         
+        if (bestSplit.leftSplit.size() < 5 || bestSplit.rightSplit.size() < 5){
+            createLeafNode(node, subset);
+            return;
+        }
+        
         // Apply the best split to the current node
         node->setFeatureIndex(bestSplit.featureIndex);
         node->setThreshold(bestSplit.threshold);
